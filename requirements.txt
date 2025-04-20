@@ -29,7 +29,7 @@ matplotlib==3.10.0
 matplotlib-inline==0.1.7
 nest-asyncio==1.6.0
 numpy==1.26.4
-
+gunicorn==23.0.0
 packaging==24.2
 pandas==2.2.3
 parso==0.8.4
