@@ -35,10 +35,13 @@ def read_csv_data(file_path):
 
     return list(team1), list(team2), list(cities)
 
+
+
 @app.route('/dropdown_data', methods=['GET'])
 def dropdown_data():
     try:
-        csv_file_path = r'C:\Users\manoj\fromnew\SMcric\FEHomePage\output2.csv'
+        # Use relative path so it works in both local & Render
+        csv_file_path = os.path.join(os.path.dirname(__file__), 'data', 'output2.csv')
         team1, team2, cities = read_csv_data(csv_file_path)
 
         data = {
@@ -51,6 +54,7 @@ def dropdown_data():
 
     except Exception as e:
         return jsonify({"error": "Failed to fetch dropdown data", "message": str(e)}), 500
+
 
 # RapidAPI Configuration
 headers = {
